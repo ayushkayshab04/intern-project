@@ -1,0 +1,38 @@
+body{
+    background-image: linear-gradient(to right, #00b09b, #96c93d);
+}
+
+.login-div{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background-color: white;
+    border-radius: 5%;
+    height: 70vh;
+    margin: 6rem auto auto auto;
+    width:40%;
+    padding:1rem;
+}
+.login-txt{
+    color:#00b09b;
+    padding-top: 2rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.input-div{
+    margin-left: 6rem;
+    width: 70%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    border: 1px solid grey;
+    height: 60px;
+    margin: 1.3rem;
+}
+.button-div{
+    padding: 2rem 2rem 2rem 17rem;
+}

@@ -1,0 +1,19 @@
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    width:85%;
+    height:10%;
+}
+.navbar-brand{
+    margin: 1.5rem 1.5rem 1.5rem 1.5rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.navbar-search{
+    margin-left: 60rem;
+    padding-top: 2.5rem;
+    display: flex;
+    flex-direction: row;
+ 
+}

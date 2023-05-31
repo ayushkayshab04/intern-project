@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import "./App.css";
+import LoginPage from "./components/Login/LoginPage";
+import RootLayout from "./components/pages/root";
+import React, { useState } from "react";
+import UserPage from "./components/UserPage/UserPage";
+import HomePage from "./components/HomePage/HomePage";
 
+export const Context = React.createContext();
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
+      {
+        path: "/user",
+        element: <UserPage />,
+      },
+    ],
+  },
+]);
 function App() {
+  const [signedIn, setSignedIn] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Context.Provider value={[signedIn, setSignedIn]}>
+      <RouterProvider router={router} />
+    </Context.Provider>
   );
 }
 

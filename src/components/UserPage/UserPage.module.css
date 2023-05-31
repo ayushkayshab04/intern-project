@@ -1,0 +1,9 @@
+body{
+    background-image: none;
+    background-color: #EEEEEE;
+}
+
+.nav-bars{
+    display: flex;
+    flex-direction: row-reverse;
+}
