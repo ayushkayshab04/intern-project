@@ -3,14 +3,18 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import SearchIcon from "@mui/icons-material/Search";
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
     <div className={classes["nav-bar"]}>
       <div className={classes["navbar-brand"]}>
-        <p>User</p>
+        <p>{props.title}</p>
       </div>
       <div className={classes["navbar-search"]}>
-        <input type="text" placeholder="search" />
+        <input
+          className={classes["search-input"]}
+          type="text"
+          placeholder="search"
+        />
         <SearchIcon fontSize="large" />
       </div>
     </div>

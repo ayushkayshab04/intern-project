@@ -1,0 +1,31 @@
+.nav-bars {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.data-div {
+    font-family: 'Open Sans', sans-serif;
+    align-items: center;
+    background-color: white;
+    height: 83vh;
+    width: 82%;
+    float: right;
+    position: relative;
+    top: -700px;
+    margin-right: 1.6rem;
+}
+.product-div{
+    height:100%;
+    width:95%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 1rem 1rem 3rem;
+}
+
+.pagination{
+    margin-left: 36.5rem;
+}
+
+.product-skeleton{
+    margin: 0rem 1rem 1rem 1rem;
+}

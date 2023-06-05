@@ -5,7 +5,7 @@ import RootLayout from "./components/pages/root";
 import React, { useState } from "react";
 import UserPage from "./components/UserPage/UserPage";
 import HomePage from "./components/HomePage/HomePage";
-
+import ProductPage from "./components/ProductPage/ProductPage";
 export const Context = React.createContext();
 const router = createBrowserRouter([
   {
@@ -23,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/user",
         element: <UserPage />,
+      },
+      {
+        path: "/product",
+        element: <ProductPage />,
       },
     ],
   },

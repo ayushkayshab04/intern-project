@@ -31,32 +31,34 @@ const LoginPage = () => {
     }
   };
   return (
-    <div className={classes["login-div"]}>
-      <form onSubmit={handleClick}>
-        <div className={classes["login-txt"]}>
-          <p>Login</p>
-        </div>
-        <div className={classes["input-div"]}>
-          <input
-            type="text"
-            size={20}
-            placeholder="Username"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <input
-            type="passwrd"
-            placeholder="Password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </div>
-        <div className={classes["button-div"]}>
-          <MyButton type="submit" title={"Sign In"} />
-        </div>
-      </form>
+    <div className={classes["login-page"]}>
+      <div className={classes["login-div"]}>
+        <form onSubmit={handleClick}>
+          <div className={classes["login-txt"]}>
+            <p>Login</p>
+          </div>
+          <div className={classes["input-div"]}>
+            <input
+              type="text"
+              size={20}
+              placeholder="Username"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+            <input
+              type="passwrd"
+              placeholder="Password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+          </div>
+          <div className={classes["button-div"]}>
+            <MyButton type="submit" title={"Sign In"} />
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

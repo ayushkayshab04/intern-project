@@ -1,9 +1,55 @@
-body{
+
+html{
+    height:100vh
+}
+
+body {
     background-image: none;
     background-color: #EEEEEE;
 }
 
-.nav-bars{
+.nav-bars {
     display: flex;
     flex-direction: row-reverse;
+}
+
+table {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+table td {
+    border: 1px solid #BDCDD6  ;
+    text-align: center;
+    background-color: white;
+    padding: 1rem;
+}
+
+table th {
+    border: 1px solid #BDCDD6  ;
+    color: grey;
+    background-color: #9CFF2E;
+    text-align: center;
+    padding:1.5rem;
+
+}
+
+.table-div{
+    margin: 2rem;
+}
+.data-div {
+    font-family: 'Open Sans', sans-serif;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 80vh;
+    width: 80%;
+    float: right;
+    position: relative;
+    top: -700px;
+    margin-right: 2rem;
+}
+
+.pagination-div {
+    margin: 1rem;
 }

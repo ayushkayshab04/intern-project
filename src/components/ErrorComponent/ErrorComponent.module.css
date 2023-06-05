@@ -1,0 +1,23 @@
+.main-div{
+display: flex;
+flex-direction: row;
+}
+
+.login-link{
+    color: brown;
+    
+}
+.login-link:hover{
+    color: #00b09b;
+}
+.error-div{
+    margin: 5rem auto auto auto ;
+    padding-top:16rem ;
+    font-size: 2.5rem;
+    height:80vh;
+    width:80%;
+    color: brown;
+    text-align: center;
+    background-color: white;
+    
+}

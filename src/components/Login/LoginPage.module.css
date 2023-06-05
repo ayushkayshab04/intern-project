@@ -28,7 +28,7 @@ body{
     flex-direction: column;
 }
 
-input{
+.input-div input{
     border: 1px solid grey;
     height: 60px;
     margin: 1.3rem;
