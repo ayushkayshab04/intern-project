@@ -3,20 +3,17 @@ import classes from "./SideBar.module.css";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { useContext } from "react";
-import { Context } from "../../App";
 
 const SideBar = () => {
-  const [signedIn, setSignedIn] = useContext(Context);
   const logout = () => {
-    setSignedIn(false);
+    localStorage.setItem("signedIn", false);
   };
   return (
     <div className={classes.navbar}>
       <nav>
         <div className={classes["nav-item"]}>
           <AccountCircleIcon fontSize="large" />
-          <Link className={classes["nav-link"]} to="/user">
+          <Link className={classes["nav-link"]} to="/users">
             User
           </Link>
         </div>

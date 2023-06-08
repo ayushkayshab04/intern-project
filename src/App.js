@@ -1,10 +1,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
-import LoginPage from "./components/Login/LoginPage";
+import LoginPage from "./pages/Login/LoginPage";
 import RootLayout from "./components/pages/root";
 import React, { useState } from "react";
 import UserPage from "./components/UserPage/UserPage";
-import HomePage from "./components/HomePage/HomePage";
+import HomePage from "./pages/HomePage/HomePage";
 import ProductPage from "./components/ProductPage/ProductPage";
 export const Context = React.createContext();
 const router = createBrowserRouter([

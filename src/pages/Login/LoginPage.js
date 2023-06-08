@@ -1,4 +1,4 @@
-import MyButton from "../button/MyButton";
+import MyButton from "../../components/button/MyButton";
 import classes from "./LoginPage.module.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";

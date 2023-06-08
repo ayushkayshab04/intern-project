@@ -1,6 +1,6 @@
 import Pagination from "@mui/material/Pagination";
 import { useDispatch, useSelector } from "react-redux";
-import { pageActions } from "../store/PageSlice";
+import { pageActions } from "../../store/PageSlice";
 
 const MyPagination = (props) => {
   const page = useSelector((state) => state.page.pageNumber);
