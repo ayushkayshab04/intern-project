@@ -1,13 +1,17 @@
 import MyButton from "../button/MyButton";
 import classes from "./LoginPage.module.css";
-import { Context } from "../../App";
-import { useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 const LoginPage = () => {
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [signedIn, setSignedIn] = useContext(Context);
+
+  useEffect(() => {
+    const body = document.querySelector("body");
+    body.style.background =
+      "linear-gradient(to right, #00b09b, #96c93d) !important";
+  }, []);
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -25,8 +29,8 @@ const LoginPage = () => {
         throw new Error("Something went wrong");
       }
       if (response.status === 200) {
-        setSignedIn(true);
-        navigate("/home");
+        localStorage.setItem("signedIn", true);
+        navigate("/users");
       }
     }
   };

@@ -6,10 +6,10 @@ const ErrorComponent = () => {
     <div className={classes["main-div"]}>
       <div className={classes["error-div"]}>
         <p>
-          Please{" "}
+          Please
           <Link className={classes["login-link"]} to="/login">
             login
-          </Link>{" "}
+          </Link>
           to visit this page!
         </p>
       </div>

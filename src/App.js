@@ -21,7 +21,7 @@ const router = createBrowserRouter([
         element: <LoginPage />,
       },
       {
-        path: "/user",
+        path: "/users",
         element: <UserPage />,
       },
       {
@@ -33,9 +33,10 @@ const router = createBrowserRouter([
 ]);
 function App() {
   const [signedIn, setSignedIn] = useState(false);
+
   return (
     <Context.Provider value={[signedIn, setSignedIn]}>
-      <RouterProvider router={router} />
+      <RouterProvider router={router} />;
     </Context.Provider>
   );
 }

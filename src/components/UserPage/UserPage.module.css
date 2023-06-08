@@ -3,10 +3,14 @@ html{
     height:100vh
 }
 
-body {
+.user-page-div{
+    height: 80vh;
+}
+
+/* body {
     background-image: none;
     background-color: #EEEEEE;
-}
+} */
 
 .nav-bars {
     display: flex;

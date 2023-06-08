@@ -1,22 +1,26 @@
 import NavBar from "../NavBar/NavBar";
 import classes from "./ProductPage.module.css";
 import SideBar from "../SideBar/SideBar";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import MyCard from "../Card/MyCard";
 import MyPagination from "../MyPagination/MyPagination";
 import { useSelector } from "react-redux";
-import { Context } from "../../App";
 import ErrorComponent from "../ErrorComponent/ErrorComponent";
 import { Skeleton } from "@mui/material";
 
 const ProductPage = () => {
   const [productData, setProductData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [signedIn, setSignedIn] = useContext(Context);
+  // const [signedIn, setSignedIn] = useContext(Context);
+  const signedIn = localStorage.getItem("signedIn");
   const limit = 10;
   const skip = useSelector((state) => state.page.skip);
   const url = `https://dummyjson.com/products?limit=${limit}&skip=${skip}`;
   useEffect(() => {
+    const body = document.querySelector("body");
+    body.style.backgroundImage = "none";
+    body.style.backgroundColor = "#EEEEEE";
+
     const getProductData = async () => {
       const response = await fetch(url, {
         method: "GET",
@@ -31,9 +35,9 @@ const ProductPage = () => {
       .then()
       .catch((e) => console.log(e));
   }, [url]);
-  if (signedIn === true) {
+  if (signedIn) {
     return (
-      <div>
+      <div className={classes["product-page-div"]}>
         <div className={classes["nav-bars"]}>
           <NavBar title={"Product"} />
           <SideBar />
@@ -54,7 +58,7 @@ const ProductPage = () => {
               </div>
             </div>
             <div className={classes["pagination"]}>
-              <MyPagination count={4} />
+              <MyPagination name={"product"} count={4} />
             </div>
           </div>
         ) : (

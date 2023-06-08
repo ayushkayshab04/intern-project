@@ -8,9 +8,8 @@ const pageSlice = createSlice({
   },
   reducers: {
     setPage(state, action) {
-      console.log("==========", action.payload);
-      state.pageNumber = action.payload;
-      state.skip = 8 * (action.payload - 1);
+      state.pageNumber = action.payload.value;
+      state.skip = action.payload.page * (action.payload.value - 1);
     },
   },
 });

@@ -1,13 +1,17 @@
 import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
 import { useDispatch, useSelector } from "react-redux";
 import { pageActions } from "../store/PageSlice";
 
 const MyPagination = (props) => {
   const page = useSelector((state) => state.page.pageNumber);
   const dispatch = useDispatch();
-  const handleChange = (event, value) => {
-    dispatch(pageActions.setPage(value));
+  const handleChange = (event, value, name) => {
+    console.log("================", value, props.name);
+    if (props.name === "user") {
+      dispatch(pageActions.setPage({ value: value, page: 8 }));
+    } else if (props.name === "product") {
+      dispatch(pageActions.setPage({ value: value, page: 10 }));
+    }
   };
 
   return (

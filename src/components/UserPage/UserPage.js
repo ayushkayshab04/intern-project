@@ -1,21 +1,26 @@
 import SideBar from "../SideBar/SideBar";
 import NavBar from "../NavBar/NavBar";
 import classes from "./UserPage.module.css";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import MyPagination from "../MyPagination/MyPagination";
-import { Context } from "../../App";
 import { Skeleton } from "@mui/material";
 import { useSelector } from "react-redux";
 import ErrorComponent from "../ErrorComponent/ErrorComponent";
 
 const UserPage = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [signedIn, setSignedIn] = useContext(Context);
+  // const [signedIn, setSignedIn] = useContext(Context);
+  const isUserSignedIn = localStorage.getItem("signedIn");
+  // setSignedIn(isUserSignedIn);
   const [data, setData] = useState([]);
   const limit = 8;
   const skip = useSelector((state) => state.page.skip);
   const url = `https://dummyjson.com/users?limit=${limit}&skip=${skip}`;
   useEffect(() => {
+    const body = document.body;
+    body.style.backgroundImage = "none";
+    body.style.backgroundColor = "#EEEEEE";
+
     const getData = async () => {
       const response = await fetch(url, {
         method: "GET",
@@ -31,9 +36,10 @@ const UserPage = () => {
         throw new Error(e);
       });
   }, [url]);
-  if (signedIn === true) {
+  // console.log("==============>>>>>>>>>", signedIn);
+  if (isUserSignedIn) {
     return (
-      <div>
+      <div className={classes["user-page-div"]}>
         <div className={classes["nav-bars"]}>
           <NavBar title={"User"} />
           <SideBar />
@@ -67,7 +73,7 @@ const UserPage = () => {
               </table>
             </div>
             <div className={classes["pagination-div"]}>
-              <MyPagination count={4} />
+              <MyPagination name={"user"} count={4} />
             </div>
           </div>
         ) : (
