@@ -1,21 +1,27 @@
-import NavBar from "../NavBar/NavBar";
 import classes from "./ProductPage.module.css";
-import SideBar from "../SideBar/SideBar";
-import { useEffect, useState } from "react";
-import MyCard from "../Card/MyCard";
-import MyPagination from "../MyPagination/MyPagination";
+import { lazy, useEffect, useState } from "react";
+import MyCard from "../../components/Card/MyCard";
+import SideBar from "../../components/SideBar/SideBar";
+import NavBar from "../../components/NavBar/NavBar";
+import MyPagination from "../../components/MyPagination/MyPagination";
 import { useSelector } from "react-redux";
-import ErrorComponent from "../ErrorComponent/ErrorComponent";
 import { Skeleton } from "@mui/material";
 
+const ErrorComponent = lazy(() =>
+  import("../../components/ErrorComponent/ErrorComponent")
+);
 const ProductPage = () => {
   const [productData, setProductData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  // const [signedIn, setSignedIn] = useContext(Context);
   const signedIn = localStorage.getItem("signedIn");
+  const searchQuery = useSelector((state) => state.page.searchQuery);
   const limit = 10;
   const skip = useSelector((state) => state.page.skip);
-  const url = `https://dummyjson.com/products?limit=${limit}&skip=${skip}`;
+  const url = `https://dummyjson.com/products/search?q=${
+    searchQuery ?? ""
+  }&limit=${limit}&skip=${skip}`;
+
+  console.log(searchQuery, "searchQuery");
   useEffect(() => {
     const body = document.querySelector("body");
     body.style.backgroundImage = "none";
@@ -26,7 +32,7 @@ const ProductPage = () => {
         method: "GET",
       });
       const responseData = await response.json();
-      console.log("=============>", responseData.products);
+      console.log("================>", responseData.products);
       setProductData(responseData.products);
       setIsLoading(false);
     };
@@ -53,6 +59,7 @@ const ProductPage = () => {
                     image={item.thumbnail}
                     summary={item.description}
                     price={item.price}
+                    multiImg={item.images}
                   />
                 ))}
               </div>

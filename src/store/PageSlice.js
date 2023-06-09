@@ -5,9 +5,11 @@ const pageSlice = createSlice({
   initialState: {
     pageNumber: 1,
     skip: 0,
+    searchQuery: "",
   },
   reducers: {
     setPage(state, action) {
+      state.searchQuery = action.payload.searchQuery;
       state.pageNumber = action.payload.value;
       state.skip = action.payload.page * (action.payload.value - 1);
     },

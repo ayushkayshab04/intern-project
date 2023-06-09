@@ -6,7 +6,6 @@ const MyPagination = (props) => {
   const page = useSelector((state) => state.page.pageNumber);
   const dispatch = useDispatch();
   const handleChange = (event, value, name) => {
-    console.log("================", value, props.name);
     if (props.name === "user") {
       dispatch(pageActions.setPage({ value: value, page: 8 }));
     } else if (props.name === "product") {

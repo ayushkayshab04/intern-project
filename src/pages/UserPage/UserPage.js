@@ -1,11 +1,15 @@
-import SideBar from "../SideBar/SideBar";
-import NavBar from "../NavBar/NavBar";
+import SideBar from "../../components/SideBar/SideBar";
+import NavBar from "../../components/NavBar/NavBar";
+// import ErrorComponent from "../../components/ErrorComponent/ErrorComponent";
+import MyPagination from "../../components/MyPagination/MyPagination";
 import classes from "./UserPage.module.css";
-import React, { useEffect, useState } from "react";
-import MyPagination from "../MyPagination/MyPagination";
+import React, { lazy, useEffect, useState } from "react";
 import { Skeleton } from "@mui/material";
 import { useSelector } from "react-redux";
-import ErrorComponent from "../ErrorComponent/ErrorComponent";
+
+const ErrorComponent = lazy(() =>
+  import("../../components/ErrorComponent/ErrorComponent")
+);
 
 const UserPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,7 +40,6 @@ const UserPage = () => {
         throw new Error(e);
       });
   }, [url]);
-  // console.log("==============>>>>>>>>>", signedIn);
   if (isUserSignedIn) {
     return (
       <div className={classes["user-page-div"]}>

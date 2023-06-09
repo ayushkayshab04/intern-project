@@ -3,9 +3,9 @@ import "./App.css";
 import LoginPage from "./pages/Login/LoginPage";
 import RootLayout from "./components/pages/root";
 import React, { useState } from "react";
-import UserPage from "./components/UserPage/UserPage";
+import UserPage from "./pages/UserPage/UserPage";
 import HomePage from "./pages/HomePage/HomePage";
-import ProductPage from "./components/ProductPage/ProductPage";
+import ProductPage from "./pages/ProductPage/ProductPage";
 export const Context = React.createContext();
 const router = createBrowserRouter([
   {
